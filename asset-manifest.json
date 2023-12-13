@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/my-records-app/static/css/main.dc464fde.css",
+    "main.js": "/my-records-app/static/js/main.082a6d0c.js",
+    "index.html": "/my-records-app/index.html",
+    "main.dc464fde.css.map": "/my-records-app/static/css/main.dc464fde.css.map",
+    "main.082a6d0c.js.map": "/my-records-app/static/js/main.082a6d0c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc464fde.css",
+    "static/js/main.082a6d0c.js"
+  ]
+}
