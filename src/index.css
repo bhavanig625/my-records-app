@@ -1,13 +1,119 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.login-container {
+  margin: 10px;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+.custom-card {
+  height: 100% !important;
+}
+
+.record-img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.file-upload-zone {
+  border: 2px dashed #cccccc;
+  display: flex;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.alter-color div:nth-child(odd) {
+  background-color: #c2c9cf;
+}
+
+.form-invalid-message{
+    margin-top: 0.25rem !important;
+    font-size: .875em;
+    color: var(--bs-form-invalid-color);
+}
+
+.copy-to-clipboard {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0.9;
+  transition: opacity 0.5s;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #4caf50 transparent transparent transparent;
+}
+
+.show-icon{
+  display: block;
+}
+
+.hide-icon{
+  /* display: none; */
+  opacity: 0;
+}
+/* @media (min-width: 500px){
+.custom-card{
+  height:100% !important;
+}
+} */
+
+/* .navbar, .navbar-nav .dropdown-menu  {
+  background-color:black; 
+  position: sticky !important;
+  top: 0;
+  z-index: 100;
+  color: white;
+} */
+
+/* .navbar-nav .dropdown-menu{
+  position: absolute !important;
+}
+
+.navbar a, .navbar .navbar-brand {
+  color: #fff !important; 
+}
+
+.navbar-brand{
+  text-decoration: solid;
+}
+
+.navbar .nav-link:hover {
+  color: #64b4ed !important; 
+} */
+
+/* .dropdown-item a:hover{
+  color:black
+} */
