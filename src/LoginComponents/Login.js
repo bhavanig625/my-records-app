@@ -2,11 +2,12 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
+import googleLogo from "../Images/google-logo.png";
 
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { SignIn } = useAuth();
+  const { SignIn, signInWithGoogle } = useAuth();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -26,6 +27,11 @@ function Login() {
       else setError("Failed to login");
     }
     setLoading(false);
+  }
+
+  async function handleGoogleSignIn() {
+    await signInWithGoogle();
+    navigate("/home");
   }
 
   return (
@@ -55,6 +61,19 @@ function Login() {
           </div>
         </Card.Body>
       </Card>
+      <div class="mt-3">
+        <div
+          class="btn btn-google btn-outline btn-google w-100"
+          onClick={handleGoogleSignIn}
+        >
+          <img
+            src={googleLogo}
+            alt="Google logo"
+            style={{ marginRight: "5px" }}
+          />
+          Signup Using Google
+        </div>
+      </div>
       <div className="w-100 text-center mt-3">
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>

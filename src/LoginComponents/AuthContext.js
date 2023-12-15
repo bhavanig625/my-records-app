@@ -8,6 +8,8 @@ import {
   sendPasswordResetEmail,
   updatePassword,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth, database } from "./firebase";
 import { ref, set, update, remove, get, child } from "firebase/database";
@@ -64,6 +66,16 @@ export function AuthProvider({ children }) {
     updateProfile(auth.currentUser, { displayName: userDetails.fname });
   }
 
+  const signInWithGoogle = async () => {
+    const googleProvider = new GoogleAuthProvider();
+    console.log("In google sign in");
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   function SignIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
@@ -108,10 +120,7 @@ export function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setLoading(false);
       setCurrentUser(user);
-      if (user != null) {
-        const userRef = ref(database, "users/" + user.uid);
-        //GetData(userRef);
-      }
+      console.log(user);
     });
     return unsubscribe;
   }, []);
@@ -226,6 +235,7 @@ export function AuthProvider({ children }) {
     resetMessage,
     resetDeleteStatus,
     resetUpdateStatus,
+    signInWithGoogle,
   };
   return (
     <AuthContext.Provider value={value}>

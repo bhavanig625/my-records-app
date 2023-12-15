@@ -84,6 +84,12 @@ code {
   /* display: none; */
   opacity: 0;
 }
+
+.btn-google {
+  color: #545454;
+background-color: #ffffff;
+box-shadow: 0 1px 2px 1px #ddd;
+}
 /* @media (min-width: 500px){
 .custom-card{
   height:100% !important;
