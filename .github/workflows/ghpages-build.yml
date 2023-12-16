@@ -21,10 +21,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Build
+      - name: Install
         run: |
           echo "Before install"
           npm install
           echo "After install"
-          npm run build
+
+      - name: Build
+          echo "Before build"
+          npm run build --verbose
           echo "After build"
