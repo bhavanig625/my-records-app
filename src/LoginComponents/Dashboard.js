@@ -53,7 +53,7 @@ function Dashboard() {
       }
     );
     return () => unsubscribe();
-  }, [message]);
+  }, [message, dataref]);
 
   return (
     <Container>

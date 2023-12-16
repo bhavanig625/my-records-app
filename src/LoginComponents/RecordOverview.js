@@ -104,7 +104,7 @@ export const RecordOverview = () => {
       }
     );
     return () => unsubscribe();
-  }, []);
+  }, [dataref]);
 
   return (
     <>

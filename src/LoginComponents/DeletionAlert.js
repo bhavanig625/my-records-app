@@ -15,7 +15,7 @@ export const DeletionAlert = () => {
     return () => {
       clearTimeout(timeoutRef);
     };
-  }, [deleteStatus]);
+  }, [deleteStatus, resetDeleteStatus]);
 
   return (
     <>

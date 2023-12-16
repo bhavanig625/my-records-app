@@ -35,7 +35,7 @@ export const EditRecord = () => {
       return () => unsubscribe();
     };
     fetchData();
-  }, []);
+  }, [dataref]);
 
   const handleRecordUpdate = (finalRecord) => {
     UpdateData(dataref, finalRecord)

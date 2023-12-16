@@ -82,13 +82,22 @@ export const RecordForm = (props) => {
     }
 
     if (customFieldsList.length > 0) {
-      customFieldsList?.map((field, index) => {
+      customFieldsList.forEach((field, index) => {
         if (!field.customFieldValue.trim()) {
           var fieldName = "customFieldValue" + index;
           validationErrors[fieldName] = "Please provide value";
         }
       });
     }
+
+    // if (customFieldsList.length > 0) {
+    //   customFieldsList?.map((field, index) => {
+    //     if (!field.customFieldValue.trim()) {
+    //       var fieldName = "customFieldValue" + index;
+    //       validationErrors[fieldName] = "Please provide value";
+    //     }
+    //   });
+    // }
 
     setErrors(validationErrors);
 
