@@ -28,6 +28,7 @@ jobs:
           echo "After install"
 
       - name: Build
+        run: |
           echo "Before build"
           npm run build --verbose
           echo "After build"
