@@ -27,6 +27,7 @@ jobs:
           npm install
           echo "After install"
           npm run build
+          echo "After build"
           ls -al
 
       - name: Add generated files
