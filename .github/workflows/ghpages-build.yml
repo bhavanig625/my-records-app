@@ -23,8 +23,11 @@ jobs:
 
       - name: Build
         run: |
+          echo "Before install"
           npm install
+          echo "After install"
           npm run build
+          ls -al
 
       - name: Add generated files
         run: |
