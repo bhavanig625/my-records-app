@@ -7,13 +7,12 @@ import { ref, onValue } from "firebase/database";
 import { RecordList } from "./RecordList";
 import { NewButton } from "./NewButton";
 import { DeletionAlert } from "./DeletionAlert";
-import { SearchRecord } from "./SearchRecord";
 
 function Dashboard() {
   const { currentUser } = useAuth();
   const [data, setData] = useState();
   const [error, setError] = useState(null);
-  const [message, setMessage] = useState(null);
+  const [message] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
   const dataref = ref(database, "users/" + currentUser?.uid + "/records");
 

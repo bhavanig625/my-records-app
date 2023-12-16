@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "./AuthContext";
-import { set, update, remove, get, child } from "firebase/database";
+import { set, update, remove, get } from "firebase/database";
 
 function Identity() {
   const numberRef = useRef();

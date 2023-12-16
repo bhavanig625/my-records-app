@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import { json } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import { database } from "./firebase";
-import { ref, onValue, get, on } from "firebase/database";
+import { ref, onValue } from "firebase/database";
 import { useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import { RecordForm } from "./RecordForm";
 
 export const EditRecord = () => {
   const navigate = useNavigate();
-  const { currentUser, UpdateData, resetUpdateStatus } = useAuth();
+  const { currentUser, UpdateData } = useAuth();
   const { key } = useParams();
-  const [imageUrl, setImageUrl] = useState();
   const [data, setData] = useState({});
-  const [erorr, setError] = useState("");
+  const [setError] = useState("");
   const dataref = ref(
     database,
     "users/" + currentUser?.uid + "/records/" + key

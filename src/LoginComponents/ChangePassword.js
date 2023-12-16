@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import { database } from "./firebase";
-import { ref, get } from "firebase/database";
 import {
   reauthenticateWithCredential,
   EmailAuthProvider,
@@ -25,7 +23,7 @@ export const ChangePassword = () => {
     if (!oldPassword) return setError("Please enter old Password");
     else if (!newPassword) return setError("Please enter new password");
     else if (!confirmPassword) return setError("Please confirm password");
-    else if (newPassword != confirmPassword)
+    else if (newPassword !== confirmPassword)
       return setError("Passwords are not matching");
     try {
       setLoading(true);

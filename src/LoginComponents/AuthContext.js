@@ -12,7 +12,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth, database } from "./firebase";
-import { ref, set, update, remove, get, child } from "firebase/database";
+import { ref, set, update, remove } from "firebase/database";
 
 const AuthContext = React.createContext();
 
@@ -26,11 +26,10 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
-  const [userData, setUserData] = useState();
-  const [data, setData] = useState();
+  const [data] = useState();
   const [userInformation, setUserInformation] = useState();
   const [deleteStatus, setDeleteStatus] = useState(false);
-  const [updateStatus, setUpdateStatus] = useState(false);
+  const [setUpdateStatus] = useState(false);
 
   async function SignUp(email, password, userDetails) {
     await createUserWithEmailAndPassword(auth, email, password)
@@ -91,14 +90,6 @@ export function AuthProvider({ children }) {
   //Is throwing 400 bad request error
   function UpdatePassword(newPassword) {
     return updatePassword(currentUser, newPassword);
-    currentUser
-      .updatePassword(newPassword)
-      .then(() => {
-        console.log("Update SuccessFul");
-      })
-      .catch((error) => {
-        console.log("Error updating passowrd", error);
-      });
   }
 
   function handleLogOut() {
@@ -230,7 +221,6 @@ export function AuthProvider({ children }) {
     userInformation,
     fetchData,
     deleteStatus,
-    resetDeleteStatus,
     GetMessage,
     resetMessage,
     resetDeleteStatus,

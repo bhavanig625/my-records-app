@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
@@ -9,7 +9,7 @@ function ProfileUpdate() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [dataloading, setDataLoading] = useState(false);
+  const [dataloading] = useState(false);
   const [userProfile, setUserProfile] = useState({
     fname: currentUser.displayName,
     email: currentUser.email,

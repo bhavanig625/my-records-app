@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useAuth } from "./AuthContext";
-import { database, storage } from "./firebase";
+import { database } from "./firebase";
 import { ref } from "firebase/database";
-import {
-  ref as storageRef,
-  uploadBytes,
-  getDownloadURL,
-} from "firebase/storage";
 import { v4 as uuid4 } from "uuid";
-import FileUpload from "./FileUpload";
 import { useNavigate } from "react-router-dom";
 import { RecordForm } from "./RecordForm";
 
@@ -19,7 +13,7 @@ export const NewRecord = () => {
   const navigate = useNavigate();
   const { currentUser, UpdateData } = useAuth();
   const [error, setError] = useState();
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const [userMessage, setUserMessage] = useState();
   const dataref = ref(
     database,

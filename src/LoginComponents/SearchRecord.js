@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Search } from "react-bootstrap-icons";
 
 export const SearchRecord = (props) => {
   const { records } = props;
   const [searchTerm, setSearchTerm] = useState("");
-  const [showSearchBar, setShowSearchBar] = useState(true);
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);

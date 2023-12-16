@@ -61,9 +61,9 @@ function Login() {
           </div>
         </Card.Body>
       </Card>
-      <div class="mt-3">
+      <div className="mt-3">
         <div
-          class="btn btn-google btn-outline btn-google w-100"
+          className="btn btn-google btn-outline btn-google w-100"
           onClick={handleGoogleSignIn}
         >
           <img

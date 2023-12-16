@@ -19,12 +19,11 @@ export const RecordOverview = () => {
   const { currentUser, DeleteData } = useAuth();
   const { key } = useParams();
   const [imageUrl, setImageUrl] = useState();
-  const [message, setMessage] = useState(null);
+  const [message] = useState(null);
   const [showConfirmationAlert, setShowConfirmationAlert] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
   const [mouseOvers, setMouseOvers] = useState({});
   const [copies, setCopies] = useState({});
-  const [visibility, setVisisbility] = useState("hide-icon");
+  const [setVisisbility] = useState("hide-icon");
 
   const dataref = ref(
     database,

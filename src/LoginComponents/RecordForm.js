@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { json } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
-import { database } from "./firebase";
-import { ref } from "firebase/database";
-import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 import { CustomField } from "./CustomField";
 import {
   XCircle,
@@ -13,21 +9,17 @@ import {
 
 export const RecordForm = (props) => {
   const { data } = props;
-  const { currentUser } = useAuth();
   const [errors, setErrors] = useState();
   const [loading, setLoading] = useState(false);
   const [showCustomFieldModal, setShowCustomFieldModal] = useState(false);
   const navigate = useNavigate();
 
-  const [file, setFile] = useState();
-  const [fileLocation, setFileLocation] = useState();
+  // const [setFile] = useState();
+  // const [setFileLocation] = useState();
 
   const [customFieldsList, setCustomFieldsList] = useState([]);
   const [recordName, setRecordName] = useState("");
   const [recordValue, setRecordValue] = useState("");
-  const [fieldErrors, setFieldErrors] = useState([]);
-  const [hasError, setHasError] = useState(false);
-  const [totalRecord, setTotalRecord] = useState({});
 
   useEffect(() => {
     setRecordName(data?.recordName || "");
@@ -49,12 +41,12 @@ export const RecordForm = (props) => {
     setShowCustomFieldModal(flag);
   };
 
-  function handleFileUpload(e) {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-    const fileLoc = "images/" + currentUser.uid + "/" + data.record.recordName;
-    setFileLocation(fileLoc);
-  }
+  // function handleFileUpload(e) {
+  //   const selectedFile = e.target.files[0];
+  //   setFile(selectedFile);
+  //   const fileLoc = "images/" + currentUser.uid + "/" + data.record.recordName;
+  //   setFileLocation(fileLoc);
+  // }
 
   function handleCustomFieldValue(index, value) {
     const newFields = [...customFieldsList];
@@ -71,7 +63,7 @@ export const RecordForm = (props) => {
 
   function handleDeleteCustomField(indexToDelete) {
     const updatedCustomFieldList = customFieldsList.filter(
-      (item, index) => index !== indexToDelete
+      (_, index) => index !== indexToDelete
     );
     setCustomFieldsList(updatedCustomFieldList);
   }
