@@ -2,7 +2,7 @@ name: Deploy react to gh-pages
 
 permissions:
   contents: write
-  
+
 on:
   push:
     branches: [main]
@@ -26,15 +26,11 @@ jobs:
 
       - name: Install
         run: |
-          echo "Before install"
           npm install
-          echo "After install"
 
       - name: Build
         run: |
-          echo "Before build"
-          npm run build --verbose
-          echo "After build"
+          npm run build
 
       - name: Deploy build files to GitHub Pages
         run: |

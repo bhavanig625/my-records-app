@@ -4,7 +4,12 @@ import Login from "./Login";
 import { AuthProvider } from "./AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Dashboard from "./Dashboard";
 import ProfileUpdate from "./ProfileUpdate";
 import Identity from "./Identity";
@@ -15,10 +20,9 @@ import { ChangePassword } from "./ChangePassword";
 import { NewRecord } from "./NewRecord";
 import { RecordOverview } from "./RecordOverview";
 import { EditRecord } from "./EditRecord";
+import { PageNotFound } from "./PageNotFound";
 
 function LoginApp() {
-  // const { currentUser } = useAuth();
-
   return (
     <>
       <Router>
@@ -113,6 +117,15 @@ function LoginApp() {
                 }
               ></Route>
               <Route
+                path="*"
+                element={
+                  <PrivateRoute>
+                    <PageNotFound />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="/" element={<Navigate to="/home" />} />
+              {/* <Route
                 exact
                 path="*"
                 element={
@@ -120,7 +133,7 @@ function LoginApp() {
                     <Dashboard />
                   </PrivateRoute>
                 }
-              ></Route>
+              ></Route> */}
             </Routes>
             {/* </div> */}
           </div>
