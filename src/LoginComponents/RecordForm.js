@@ -21,10 +21,18 @@ export const RecordForm = (props) => {
   const [recordName, setRecordName] = useState("");
   const [recordValue, setRecordValue] = useState("");
 
+  // if (data) {
+  //   setRecordName(data?.recordName || "");
+  //   setRecordValue(data?.recordValue || "");
+  //   setCustomFieldsList(data?.customFields || "");
+  // }
+
   useEffect(() => {
-    setRecordName(data?.recordName || "");
-    setRecordValue(data?.recordValue || "");
-    setCustomFieldsList(data?.customFields || "");
+    if (data) {
+      setRecordName(data.recordName || "");
+      setRecordValue(data.recordValue || "");
+      setCustomFieldsList(data.customFields || "");
+    }
   }, [data]);
 
   const handleCustomFieldName = (fieldName) => {

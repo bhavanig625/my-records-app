@@ -35,7 +35,8 @@ export const EditRecord = () => {
       return () => unsubscribe();
     };
     fetchData();
-  }, [dataref]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleRecordUpdate = (finalRecord) => {
     UpdateData(dataref, finalRecord)

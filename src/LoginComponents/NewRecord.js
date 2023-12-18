@@ -13,7 +13,7 @@ export const NewRecord = () => {
   const navigate = useNavigate();
   const { currentUser, UpdateData } = useAuth();
   const [error, setError] = useState();
-  const [setLoading] = useState(false);
+  //const [setLoading] = useState(false);
   const [userMessage, setUserMessage] = useState();
   const dataref = ref(
     database,
@@ -34,7 +34,7 @@ export const NewRecord = () => {
           console.log(error);
         });
 
-      setLoading(false);
+      //setLoading(false);
     } catch (e) {
       setError("Error creating record");
       console.log("Error updating data", e);

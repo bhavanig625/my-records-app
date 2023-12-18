@@ -23,7 +23,6 @@ export const RecordOverview = () => {
   const [showConfirmationAlert, setShowConfirmationAlert] = useState(false);
   const [mouseOvers, setMouseOvers] = useState({});
   const [copies, setCopies] = useState({});
-  const [setVisisbility] = useState("hide-icon");
 
   const dataref = ref(
     database,
@@ -60,16 +59,10 @@ export const RecordOverview = () => {
 
   const handleMouseOver = (field) => {
     setMouseOvers({ ...mouseOvers, [field]: true });
-    setVisisbility("show-icon");
-    // const vis = mouseOvers?.[field] && !copies?.[field];
-    // setVisisbility(vis);
-    // console.log(vis);
-    // console.log(mouseOvers);
   };
 
   const handleMouseOut = (field) => {
     setMouseOvers({ ...mouseOvers, [field]: false });
-    setVisisbility("hide-icon");
   };
 
   const copyToClipboard = async (field, textToCopy) => {
@@ -104,7 +97,8 @@ export const RecordOverview = () => {
       }
     );
     return () => unsubscribe();
-  }, [dataref]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

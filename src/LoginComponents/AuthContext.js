@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
   const [data] = useState();
   const [userInformation, setUserInformation] = useState();
   const [deleteStatus, setDeleteStatus] = useState(false);
-  const [setUpdateStatus] = useState(false);
+  // const [setUpdateStatus] = useState(false);
 
   async function SignUp(email, password, userDetails) {
     await createUserWithEmailAndPassword(auth, email, password)
@@ -128,14 +128,10 @@ export function AuthProvider({ children }) {
       });
   }
 
-  function UpdateData(dataref, inputData) {
-    return update(dataref, inputData)
-      .then(() => {
-        setUpdateStatus(true);
-      })
-      .catch((error) => {
-        throw new Error("Data could not be updated. " + error.message);
-      });
+  async function UpdateData(dataref, inputData) {
+    return await update(dataref, inputData).catch((error) => {
+      throw new Error("Data could not be updated. " + error.message);
+    });
   }
 
   function DeleteData(dataref) {
@@ -185,7 +181,7 @@ export function AuthProvider({ children }) {
   };
 
   const resetUpdateStatus = () => {
-    setUpdateStatus(false);
+    //setUpdateStatus(false);
   };
   const resetMessage = () => {
     setMessage(false);
