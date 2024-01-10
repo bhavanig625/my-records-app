@@ -20,7 +20,7 @@ export const DeletionAlert = () => {
   return (
     <>
       {deleteStatus && (
-        <Alert variant="danger">Record deleted successfully</Alert>
+        <Alert variant="danger">Record deleted successfully!</Alert>
       )}
     </>
   );
