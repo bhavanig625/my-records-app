@@ -30,7 +30,7 @@ jobs:
 
       - name: Build
         run: |
-          npm run build
+          npm run deploy
 
       - name: Deploy build files to GitHub Pages
         run: |
