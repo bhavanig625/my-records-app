@@ -28,18 +28,9 @@ jobs:
         run: |
           npm install
 
-      - name: Build
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          npm run deploy
 
       - name: Deploy build files to GitHub Pages
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git checkout main -- build
-          git checkout gh-pages
-          git add build -f
-          git commit -m "Update gh-pages with build files"
-          git push origin gh-pages
+          npm run deploy
